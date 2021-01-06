@@ -1,0 +1,33 @@
+<table class="table table-hover">
+<tr>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Avatar</th>
+    <th>Action</th>
+</tr>
+<tbody>
+<tr *ngFor="let data of userdata,let i=index">
+    <td>{{data.id}}</td>  
+    <td>{{data.firstname}}</td>
+    <td>{{data.lastname}}</td>  
+    <td>{{data.email}}</td>
+    <td><img src="{{data.avatar}}" width="75" height="75" /></td>   
+    <td>
+    <a [roterLink]="['/recordList',i]" routerLinkActive="active" (click)="onEdit(i)">Edit</a>
+    |
+    <a [routerLink]="['/recordList']" routerLinkActive="active" (click)="ondelete(i)">Delete</a>
+    </td>
+</tr>
+</tbody>
+
+</table>
+
+<nav class="navbar nav-pills">
+    
+<ul class="pagination">
+    <li><a (click)="onFetchPosts(1)">1</a></li>
+    <li><a (click)="onFetchPosts(2)">2</a></li>
+</ul>
+</nav>
